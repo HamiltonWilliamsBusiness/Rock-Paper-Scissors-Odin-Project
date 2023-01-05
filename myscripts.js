@@ -8,7 +8,7 @@ let aTie = 0;
 
 //Functions
 function aGame(){
-    console.log("Lets play rock paper scissors");
+    console.log("Lets play rock paper scissors!");
     for (let i = 0; i < 5; i++) {
         console.log("This is Round " + (i + 1));
         getComputerChoice();
@@ -81,7 +81,16 @@ function playRound(x,y) {
 }
 
 function getPlayerChoice(){
-    return playerChoice = prompt('Type in "rock", "paper", or "scissors"!');
+    //Input Validation
+    while(true){
+        playerChoice = prompt('Type in "rock", "paper", or "scissors"!');
+        playerChoice = playerChoice.toLowerCase();
+        if(playerChoice == 'paper'){break;}
+        if(playerChoice == 'scissors'){break;}
+        if(playerChoice == 'rock'){break;}
+        console.log('You typed in incorrect input! Please Type in "rock", "paper", or "scissors"!')
+    }
+    return playerChoice;
 }
 
 function getComputerChoice(){
