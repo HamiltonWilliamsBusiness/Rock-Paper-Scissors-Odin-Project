@@ -9,11 +9,24 @@ let aTie = 0;
 //Functions
 function aGame(){
     console.log("Lets play rock paper scissors");
-    getComputerChoice();
-    getPlayerChoice();
-    console.log(playRound(playerChoice, computerSelection));
+    for (let i = 0; i < 5; i++) {
+        console.log("This is Round " + (i + 1));
+        getComputerChoice();
+        getPlayerChoice();
+        console.log(playRound(playerChoice, computerSelection));
+        console.log("This is the end of Round " + (i + 1));
+     }
 
-    
+     if(playerWinCount > compWinCount){
+        console.log("You win out of 5 rounds!");
+     }
+     else if(playerWinCount == compWinCount){
+        console.log("You Tied out of 5 rounds!");
+     }
+     else{
+        console.log("You lost out of 5 rounds!");
+     }
+
 }
 
 function playRound(x,y) {
