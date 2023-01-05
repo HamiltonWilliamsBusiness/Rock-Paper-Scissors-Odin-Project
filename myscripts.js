@@ -14,6 +14,10 @@ function aGame(){
         getComputerChoice();
         getPlayerChoice();
         console.log(playRound(playerChoice, computerSelection));
+        console.log('Your score is ' + playerWinCount);
+        console.log('You chose ' + playerChoice);
+        console.log("The computer's score is " + compWinCount);
+        console.log("The computer chose " + computerSelection);
         console.log("This is the end of Round " + (i + 1));
      }
 
@@ -37,7 +41,7 @@ function playRound(x,y) {
                 return 'You tied!';
                 break;
             case 'paper':
-                --playerWinCount;
+                ++compWinCount;
                 return 'You lost!';
                 break; 
             case 'scissors':
@@ -53,7 +57,7 @@ function playRound(x,y) {
                 return 'You tied!';
                 break;
             case 'scissors':
-                --playerWinCount;
+                ++compWinCount;
                 return 'You lost!';
                 break; 
             case 'rock':
