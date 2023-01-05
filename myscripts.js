@@ -20,6 +20,7 @@ function aGame(){
         console.log("The computer chose " + computerSelection);
         console.log("This is the end of Round " + (i + 1));
      }
+     console.log("Number of ties " + aTie);
 
      if(playerWinCount > compWinCount){
         console.log("You win out of 5 rounds!");
@@ -73,7 +74,7 @@ function playRound(x,y) {
                 return 'You tied!';
                 break;
             case 'rock':
-                --playerWinCount;
+                ++compWinCount;
                 return 'You lost!';
                 break; 
             case 'paper':
