@@ -28,7 +28,10 @@ let tieScore = document.createElement('h3');
 tieScore.textContent = `Number of Ties: ${aTie}`;
 
 let matchDisplay = document.createElement('h4');
-matchDisplay.textContent = `:)`;
+matchDisplay.textContent = ``;
+
+let finalDisplay = document.createElement('h4');
+finalDisplay.textContent = ``;
 
 
 container.append(gameTitle, roundNum, playerScore, cpuScore, tieScore, matchDisplay);
@@ -123,15 +126,15 @@ function playRound(cpuSelection, playerSelection) {
         switch(cpuSelection){
             case 'rock':
                 ++aTie;
-                return 'You tied!';
+                return 'You tied this round!';
                 break;
             case 'paper':
                 ++compWinCount;
-                return 'You lost!';
+                return 'You lost this round!';
                 break; 
             case 'scissors':
                 ++playerWinCount;
-                return 'You won!';
+                return 'You won this round!';
                 break; 
         }
     }
@@ -139,15 +142,15 @@ function playRound(cpuSelection, playerSelection) {
         switch(cpuSelection){
             case 'paper':
                 ++aTie;
-                return 'You tied!';
+                return 'You tied this round!';
                 break;
             case 'scissors':
                 ++compWinCount;
-                return 'You lost!';
+                return 'You lost this round!';
                 break; 
             case 'rock':
                 ++playerWinCount;
-                return 'You won!';
+                return 'You won this round!';
                 break; 
         }
     }
@@ -155,30 +158,30 @@ function playRound(cpuSelection, playerSelection) {
         switch(cpuSelection){
             case 'scissors':
                 ++aTie;
-                return 'You tied!';
+                return 'You tied this round!';
                 break;
             case 'rock':
                 ++compWinCount;
-                return 'You lost!';
+                return 'You lost this round!';
                 break; 
             case 'paper':
                 ++playerWinCount;
-                return 'You won!';
+                return 'You won this round!';
                 break; 
         }
     }
 }
 
 function printMatchResult(){
-    console.log(matchResult)
-    console.log('Your score is ' + playerWinCount);
-    console.log('You chose ' + playerChoice);
-    console.log("The computer's score is " + compWinCount);
-    console.log("The computer chose " + computerSelection);
-    console.log("This is the end of Round " + (++roundCounter));
+    // console.log(matchResult)
+    // console.log('Your score is ' + playerWinCount);
+    // console.log('You chose ' + playerChoice);
+    // console.log("The computer's score is " + compWinCount);
+    // console.log("The computer chose " + computerSelection);
+    // console.log("This is the end of Round " + (++roundCounter));
 
 
-    roundNum.textContent = `Round ${roundCounter}`;
+    roundNum.textContent = `Round ${++roundCounter}`;
 
     playerScore.textContent = `Player Win Count: ${playerWinCount}`;
 
