@@ -31,10 +31,10 @@ let matchDisplay = document.createElement('h4');
 matchDisplay.textContent = ``;
 
 let finalDisplay = document.createElement('h4');
-finalDisplay.textContent = ``;
 
 
-container.append(gameTitle, roundNum, playerScore, cpuScore, tieScore, matchDisplay);
+
+container.append(gameTitle, roundNum, playerScore, cpuScore, tieScore, matchDisplay, finalDisplay);
 
 
 // Button Creation
@@ -110,14 +110,17 @@ function scissors() {
 // }
 
 function gameReset(){
+
+    if (roundCounter == 1) {
+        finalDisplay.textContent = ``;
+    }
     if (roundCounter >= 5){
-        console.log("The game is complete!");
+        console.log("The game is complete!" + roundCounter + "\n press a rock/paper/scissors button to play again");
         // Resetting Game Values to 0
         playerWinCount = 0;
         compWinCount = 0;
         aTie = 0;
         roundCounter = 0;
-
     }
 }
 
@@ -190,6 +193,21 @@ function printMatchResult(){
     tieScore.textContent = `Number of Ties: ${aTie}`;
 
     matchDisplay.textContent = matchResult;
+
+
+    if (roundCounter >= 5){
+        if(playerWinCount > compWinCount) {
+            finalDisplay.textContent = `You beat the cpu within five rounds, congratulations!` + "\n Press a rock/paper/scissors button to play again!";
+        }
+        else if(compWinCount > playerWinCount) {
+            finalDisplay.textContent = `You lost to the cpu within five rounds, try again next time!` + "\n Press a rock/paper/scissors button to play again!";
+        }
+        else {
+            finalDisplay.textContent = `You tied to the cpu within five rounds, not bad!` + "\n Press a rock/paper/scissors button to play again!";
+        }
+        
+    }
+    
 }
 
 function getComputerChoice(){
