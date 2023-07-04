@@ -10,6 +10,30 @@ let matchResult;
 
 const container = document.querySelector('#holder');
 
+// Result Showing Div Creation
+
+let gameTitle = document.createElement('h1');
+gameTitle.textContent = "ROCK PAPER SCISSORS";
+
+let roundNum = document.createElement('h2');
+roundNum.textContent = `Round ${roundCounter}`;
+
+let playerScore = document.createElement('h3');
+playerScore.textContent = `Player Win Count: ${playerWinCount}`;
+
+let cpuScore = document.createElement('h3');
+cpuScore.textContent = `Computer Win Count: ${compWinCount}`;
+
+let tieScore = document.createElement('h3');
+tieScore.textContent = `Number of Ties: ${aTie}`;
+
+let matchDisplay = document.createElement('h4');
+matchDisplay.textContent = `:)`;
+
+
+container.append(gameTitle, roundNum, playerScore, cpuScore, tieScore, matchDisplay);
+
+
 // Button Creation
 let rockBtn = document.createElement('BUTTON');
 rockBtn.textContent = "rock";
@@ -28,6 +52,7 @@ scissorsBtn.addEventListener('click', scissors);
 container.append(rockBtn, paperBtn, scissorsBtn);
 
 // Button Function Creation
+
 function rock() {
     // alert("You pressed rock");
     playerChoice = 'rock';
@@ -51,6 +76,7 @@ function scissors() {
     printMatchResult()
     gameReset()
 }
+
 
 //Functions
 // function aGame(){
@@ -150,6 +176,17 @@ function printMatchResult(){
     console.log("The computer's score is " + compWinCount);
     console.log("The computer chose " + computerSelection);
     console.log("This is the end of Round " + (++roundCounter));
+
+
+    roundNum.textContent = `Round ${roundCounter}`;
+
+    playerScore.textContent = `Player Win Count: ${playerWinCount}`;
+
+    cpuScore.textContent = `Computer Win Count: ${compWinCount}`;
+
+    tieScore.textContent = `Number of Ties: ${aTie}`;
+
+    matchDisplay.textContent = matchResult;
 }
 
 function getComputerChoice(){
