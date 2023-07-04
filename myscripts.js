@@ -5,97 +5,151 @@ let aRandNum;
 let playerWinCount = 0;
 let compWinCount = 0;
 let aTie = 0;
+let roundCounter = 0;
+let matchResult;
+
+const container = document.querySelector('#holder');
+
+// Button Creation
+let rockBtn = document.createElement('BUTTON');
+rockBtn.textContent = "rock";
+rockBtn.addEventListener('click', rock);
+
+
+let paperBtn = document.createElement('BUTTON');
+paperBtn.textContent = "paper";
+paperBtn.addEventListener('click', paper);
+
+
+let scissorsBtn = document.createElement('BUTTON');
+scissorsBtn.textContent = "scissors";
+scissorsBtn.addEventListener('click', scissors);
+
+container.append(rockBtn, paperBtn, scissorsBtn);
+
+// Button Function Creation
+function rock() {
+    // alert("You pressed rock");
+    playerChoice = 'rock';
+    matchResult = playRound(getComputerChoice(), 'rock')
+    printMatchResult()
+    gameReset()
+}
+
+function paper() {
+    // alert("You pressed paper");
+    playerChoice = 'paper';
+    matchResult = playRound(getComputerChoice(), 'paper')
+    printMatchResult()
+    gameReset()
+}
+
+function scissors() {
+    // alert("You pressed scissors");
+    playerChoice = 'scissors';
+    matchResult = playRound(getComputerChoice(), 'scissors')
+    printMatchResult()
+    gameReset()
+}
 
 //Functions
-function aGame(){
-    console.log("Lets play rock paper scissors!");
-    for (let i = 0; i < 5; i++) {
-        console.log("This is Round " + (i + 1));
-        getComputerChoice();
-        getPlayerChoice();
-        console.log(playRound(playerChoice, computerSelection));
-        console.log('Your score is ' + playerWinCount);
-        console.log('You chose ' + playerChoice);
-        console.log("The computer's score is " + compWinCount);
-        console.log("The computer chose " + computerSelection);
-        console.log("This is the end of Round " + (i + 1));
-     }
-     console.log("Number of ties " + aTie);
+// function aGame(){
+//     console.log("Lets play rock paper scissors!");
+//     for (let i = 0; i < 5; i++) {
+//         console.log("This is Round " + (i + 1));
+//         getComputerChoice();
+//         getPlayerChoice();
+//         console.log(playRound(playerChoice, computerSelection));
+        // console.log('Your score is ' + playerWinCount);
+        // console.log('You chose ' + playerChoice);
+        // console.log("The computer's score is " + compWinCount);
+        // console.log("The computer chose " + computerSelection);
+        // console.log("This is the end of Round " + (i + 1));
+//      }
+//      console.log("Number of ties " + aTie);
 
-     if(playerWinCount > compWinCount){
-        console.log("You win out of 5 rounds!");
-     }
-     else if(playerWinCount == compWinCount){
-        console.log("You Tied out of 5 rounds!");
-     }
-     else{
-        console.log("You lost out of 5 rounds!");
-     }
+//      if(playerWinCount > compWinCount){
+//         console.log("You win out of 5 rounds!");
+//      }
+//      else if(playerWinCount == compWinCount){
+//         console.log("You Tied out of 5 rounds!");
+//      }
+//      else{
+//         console.log("You lost out of 5 rounds!");
+//      }
 
-}
+// }
 
-function playRound(x,y) {
-    if(playerChoice == 'rock'){
-        switch(computerSelection){
-            case 'rock':
-                ++aTie;
-                return 'You tied!';
-                break;
-            case 'paper':
-                ++compWinCount;
-                return 'You lost!';
-                break; 
-            case 'scissors':
-                ++playerWinCount;
-                return 'You won!';
-                break; 
-        }
-    }
-    if(playerChoice == 'paper'){
-        switch(computerSelection){
-            case 'paper':
-                ++aTie;
-                return 'You tied!';
-                break;
-            case 'scissors':
-                ++compWinCount;
-                return 'You lost!';
-                break; 
-            case 'rock':
-                ++playerWinCount;
-                return 'You won!';
-                break; 
-        }
-    }
-    if(playerChoice == 'scissors'){
-        switch(computerSelection){
-            case 'scissors':
-                ++aTie;
-                return 'You tied!';
-                break;
-            case 'rock':
-                ++compWinCount;
-                return 'You lost!';
-                break; 
-            case 'paper':
-                ++playerWinCount;
-                return 'You won!';
-                break; 
-        }
+function gameReset(){
+    if (roundCounter >= 5){
+        console.log("The game is complete!");
+        // Resetting Game Values to 0
+        playerWinCount = 0;
+        compWinCount = 0;
+        aTie = 0;
+        roundCounter = 0;
+
     }
 }
 
-function getPlayerChoice(){
-    //Input Validation
-    while(true){
-        playerChoice = prompt('Type in "rock", "paper", or "scissors"!');
-        playerChoice = playerChoice.toLowerCase();
-        if(playerChoice == 'paper'){break;}
-        if(playerChoice == 'scissors'){break;}
-        if(playerChoice == 'rock'){break;}
-        console.log('You typed in incorrect input! Please Type in "rock", "paper", or "scissors"!')
+function playRound(cpuSelection, playerSelection) {
+    if(playerSelection == 'rock'){
+        switch(cpuSelection){
+            case 'rock':
+                ++aTie;
+                return 'You tied!';
+                break;
+            case 'paper':
+                ++compWinCount;
+                return 'You lost!';
+                break; 
+            case 'scissors':
+                ++playerWinCount;
+                return 'You won!';
+                break; 
+        }
     }
-    return playerChoice;
+    if(playerSelection == 'paper'){
+        switch(cpuSelection){
+            case 'paper':
+                ++aTie;
+                return 'You tied!';
+                break;
+            case 'scissors':
+                ++compWinCount;
+                return 'You lost!';
+                break; 
+            case 'rock':
+                ++playerWinCount;
+                return 'You won!';
+                break; 
+        }
+    }
+    if(playerSelection == 'scissors'){
+        switch(cpuSelection){
+            case 'scissors':
+                ++aTie;
+                return 'You tied!';
+                break;
+            case 'rock':
+                ++compWinCount;
+                return 'You lost!';
+                break; 
+            case 'paper':
+                ++playerWinCount;
+                return 'You won!';
+                break; 
+        }
+    }
+}
+
+function printMatchResult(){
+    console.log(matchResult)
+    console.log('Your score is ' + playerWinCount);
+    console.log('You chose ' + playerChoice);
+    console.log("The computer's score is " + compWinCount);
+    console.log("The computer chose " + computerSelection);
+    console.log("This is the end of Round " + (++roundCounter));
 }
 
 function getComputerChoice(){
@@ -113,7 +167,8 @@ function getComputerChoice(){
             computerSelection = 'scissors';
             break;
     }
+
     return computerSelection;
 }
 
-aGame();
+// aGame();
