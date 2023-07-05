@@ -14,23 +14,30 @@ const container = document.querySelector('#holder');
 
 let gameTitle = document.createElement('h1');
 gameTitle.textContent = "ROCK PAPER SCISSORS";
+gameTitle.classList.add("text");
 
 let roundNum = document.createElement('h2');
 roundNum.textContent = `Round ${roundCounter}`;
+roundNum.classList.add("text");
 
 let playerScore = document.createElement('h3');
 playerScore.textContent = `Player Win Count: ${playerWinCount}`;
+playerScore.classList.add("text");
 
 let cpuScore = document.createElement('h3');
 cpuScore.textContent = `Computer Win Count: ${compWinCount}`;
+cpuScore.classList.add("text");
 
 let tieScore = document.createElement('h3');
 tieScore.textContent = `Number of Ties: ${aTie}`;
+tieScore.classList.add("text");
 
 let matchDisplay = document.createElement('h4');
 matchDisplay.textContent = ``;
+matchDisplay.classList.add("text");
 
 let finalDisplay = document.createElement('h4');
+finalDisplay.classList.add("text");
 
 
 
