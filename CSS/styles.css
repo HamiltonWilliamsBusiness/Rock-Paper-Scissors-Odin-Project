@@ -1,7 +1,65 @@
 .text {
     color: white;
+    font-family: 'Anek Odia', sans-serif;
+    font-size: 80px;
+    font-weight: 400;
+    margin: 0;
 }
 
 body {
     background-color: black;
+    min-height: 100vh;
+    display: flex;
 }
+
+#holder{
+    display: flex;
+    flex-direction: column; 
+    flex-grow: 1;
+    /* justify-content: space-between; */
+    
+}
+
+.button {
+    background-color: black;
+    border: none;
+}
+
+.upperHolder {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.gameTitles {
+    align-self: center;
+}
+
+.lowerHolder {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.firstHolder {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.secondHolder {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+ .thirdHolder {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+ }
+
+ .middleHolder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
